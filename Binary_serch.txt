@@ -1,0 +1,54 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+//This program is for implementing linear search algorithm
+int main() {
+    // Write C code here
+    int i, n=5, flag;
+    int low, high, mid;
+    int a[10];  //arrayname[size]
+    int key ;
+    //how to read array from user
+    printf("\n Please enter 5 elements: \n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("\n Array elements are \n");
+    for(i=0;i<n;i++)
+    {
+        printf("\t %d",a[i]);
+    }
+  
+  //This is code of binary search
+    printf("\n Please enter key to be serach: ");
+    scanf("%d",&key);
+    
+    flag = 0; // 0 not found   1=== found
+    low =0; high = n-1;
+    while(low<=high)
+    {
+        //setp 1 mid calculation
+        mid = (low+high)/2;
+        //step 2 compare
+        printf("\n mid = %d a[mid]= %d, key=%d", mid, a[mid], key);
+        if(a[mid] == key)
+        {
+            printf("\n Element is found at location %d",mid);
+            flag=1; //found
+         break;
+        }
+        
+        if(a[mid]<key)//right
+        {
+            low = mid+1;
+        }
+        else //left
+            high = mid-1;
+        
+        
+    }//end
+    if(flag==0)
+    printf("\n Not found");
+    
+    return 0;
+}
